@@ -65,7 +65,7 @@ def is_float(s: str) -> bool:
     '''
     Checks if a number is a float without using a try/except block
     Used only for the halt command so you can easily specify a delay in an asm program
-    :param num: String
+    :param s:
     :return: Boolean
     '''
     try:
