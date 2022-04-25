@@ -23,6 +23,7 @@ class InvalidRegister(Exception):
     '''
     Custom exception class for when the program can't find the register specified in the assembly
     '''
+
     def __init__(self, register):
         super().__init__("")
         self.register = register
@@ -34,6 +35,7 @@ def ThrowsException(func):
     :param func: Function
     :return: Function
     '''
+
     def wrapper(args):
         try:
             func(args)
