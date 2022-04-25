@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from time import sleep
+from typing import List, Callable
 
 parser = ArgumentParser()
 parser.add_argument("-f", "--file", dest="filename", help="specifies the asm file to interpret", metavar="FILE")
@@ -29,7 +30,7 @@ class InvalidRegister(Exception):
         self.register = register
 
 
-def ThrowsException(func):
+def ThrowsException(func: Callable) -> Callable:
     '''
     Decorator that applies a wrapper which will hand InvalidRegister and ValueError exceptions
     :param func: Function
@@ -49,7 +50,7 @@ def ThrowsException(func):
     return wrapper
 
 
-def is_int(s):
+def is_int(s: str) -> bool:
     '''
     Checks if a number is an integer without using a try/except block
     :param s: String
@@ -60,7 +61,7 @@ def is_int(s):
     return s.isdigit()
 
 
-def is_float(num):
+def is_float(s: str) -> bool:
     '''
     Checks if a number is a float without using a try/except block
     Used only for the halt command so you can easily specify a delay in an asm program
@@ -68,14 +69,14 @@ def is_float(num):
     :return: Boolean
     '''
     try:
-        float(num)
+        float(s)
         return True
     except ValueError:
         return False
 
 
 @ThrowsException
-def mov(args):
+def mov(args: List[str]):
     if args[1] not in registers:
         raise InvalidRegister(args[1])
     if is_int(args[0]):
@@ -87,7 +88,7 @@ def mov(args):
 
 
 @ThrowsException
-def add(args):
+def add(args: List[str]):
     if args[0] not in registers:
         raise InvalidRegister(args[0])
     if args[1] not in registers:
@@ -96,7 +97,7 @@ def add(args):
 
 
 @ThrowsException
-def sub(args):
+def sub(args: List[str]):
     if args[0] not in registers:
         raise InvalidRegister(args[0])
     if args[1] not in registers:
@@ -105,21 +106,21 @@ def sub(args):
 
 
 @ThrowsException
-def inc(args):
+def inc(args: List[str]):
     if args[0] not in registers:
         raise InvalidRegister(args[0])
     registers[args[0]] += 1
 
 
 @ThrowsException
-def dec(args):
+def dec(args: List[str]):
     if args[0] not in registers:
         raise InvalidRegister(args[0])
     registers[args[0]] -= 1
 
 
 @ThrowsException
-def imul(args):
+def imul(args: List[str]):
     if args[0] not in registers:
         raise InvalidRegister(args[0])
     if args[1] not in registers:
@@ -128,7 +129,7 @@ def imul(args):
 
 
 @ThrowsException
-def idiv(args):
+def idiv(args: List[str]):
     if args[0] not in registers:
         raise InvalidRegister(args[0])
     if args[1] not in registers:
@@ -137,7 +138,7 @@ def idiv(args):
 
 
 @ThrowsException
-def jmp(args):
+def jmp(args: List[str]):
     global instruction_counter
     try:
         instruction_counter = loops[args[0]]
@@ -146,7 +147,7 @@ def jmp(args):
 
 
 @ThrowsException
-def hlt(args):
+def hlt(args: List[str]):
     global halt_value
     if is_float(args[0]):
         halt_value = float(args[0])
@@ -157,7 +158,7 @@ def hlt(args):
 
 
 @ThrowsException
-def prnt(args):
+def prnt(args: List[str]):
     if is_int(args[0]):
         print(int(args[0]))
     else:
