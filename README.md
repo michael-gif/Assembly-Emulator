@@ -37,4 +37,4 @@ jmp loop
 ```
 - Saved as "fibonacci.asm"
 - Running the command `python main.py -f fibonacci.asm`:  
-![Fibonacci output](https:|github.com/michael-gif/assembly-interpreter/blob/main/output.png)
+![Fibonacci output](https://github.com/michael-gif/assembly-interpreter/blob/main/stuff/output.png)
