@@ -2,11 +2,9 @@ from argparse import ArgumentParser
 from time import sleep
 
 parser = ArgumentParser()
-parser.add_argument("-f", "--file", dest="filename",
-                    help="specifies the asm file to interpret", metavar="FILE")
-args = vars(parser.parse_args())
-filename = args["filename"]
-if filename is None:
+parser.add_argument("-f", "--file", dest="filename", help="specifies the asm file to interpret", metavar="FILE")
+command_line_args = vars(parser.parse_args())
+if command_line_args["filename"] is None:
     quit()
 
 registers = {
@@ -33,8 +31,8 @@ class InvalidRegister(Exception):
 def ThrowsException(func):
     '''
     Decorator that applies a wrapper which will hand InvalidRegister and ValueError exceptions
-    :param func:
-    :return:
+    :param func: Function
+    :return: Function
     '''
     def wrapper(args):
         try:
@@ -52,8 +50,8 @@ def ThrowsException(func):
 def is_int(s):
     '''
     Checks if a number is an integer without using a try/except block
-    :param s:
-    :return:
+    :param s: String
+    :return: Boolean
     '''
     if s[0] in ('-', '+'):
         return s[1:].isdigit()
@@ -64,8 +62,8 @@ def is_float(num):
     '''
     Checks if a number is a float without using a try/except block
     Used only for the halt command so you can easily specify a delay in an asm program
-    :param num:
-    :return:
+    :param num: String
+    :return: Boolean
     '''
     try:
         float(num)
@@ -179,7 +177,7 @@ commands = {
     "prnt": prnt
 }
 
-with open(filename) as f:
+with open(command_line_args["filename"]) as f:
     lines = [line.strip('\n').strip(" ") for line in f.readlines()]
 
 loops = {}
