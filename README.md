@@ -3,7 +3,7 @@ An interpreter that will read and execute an asm file from the terminal
 
 # Usage
 - write your assembly in a file ending with .asm
-- run main.py in a terminal, giving the asm file you wrote as an argument
+- run `python main.py -f <filename>.asm` in a terminal, giving the asm file you wrote as `<filename>`
 
 # Example
 The asm file:
