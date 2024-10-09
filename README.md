@@ -4,7 +4,7 @@ An emulator that will read and execute an asm file from the terminal
 # Usage
 - Run `asmc.exe <filename.asm>` in a terminal. You must include the `.asm` extension
 
-# Instruction set
+# Suported instruction set
 | Instruction         | Description |
 | ------------------- | ----------- |
 | `mov <reg1> <reg2>` | moves contents of reg2 to reg1 |
