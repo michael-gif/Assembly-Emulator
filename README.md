@@ -1,5 +1,6 @@
 # C++ Assembly Emulator
-An emulator that will read and execute an asm file from the terminal
+An emulator that will read and execute an asm file from the terminal  
+Download latest release [here](https://github.com/michael-gif/Assembly-Emulator/releases/latest)
 
 # Usage
 - Run `asmc.exe <filename.asm>` in a terminal. You must include the `.asm` extension
