@@ -1,40 +1,63 @@
-# Python Assembly Language Interpreter
-An interpreter that will read and execute an asm file from the terminal
+# C++ Assembly Emulator
+An emulator that will read and execute an asm file from the terminal
 
 # Usage
-- write your assembly in a file ending with .asm
-- run `python main.py -f <filename>.asm` in a terminal, giving the asm file you wrote as `<filename>`
+- Run `asmc.exe <filename.asm>` in a terminal. You must include the `.asm` extension
 
 # Instruction set
 | Instruction         | Description |
 | ------------------- | ----------- |
-| `mov <reg1> <reg2>` | moves contents of reg1 to reg2 |
-| `add <reg1> <reg2>` | adds reg1 to reg2 storing the result in reg2 |
-| `sub <reg1> <reg2>` | subtracts reg1 from reg2 storing the result in reg2 |
+| `mov <reg1> <reg2>` | moves contents of reg2 to reg1 |
+| `add <reg1> <reg2>` | adds reg2 to reg1 storing the result in reg1 |
+| `sub <reg1> <reg2>` | subtracts reg2 from reg1 storing the result in reg1 |
 | `inc <reg>`         | increments reg by 1 |
 | `dec <reg>`         | decrements reg by 1 |
-| `imul <reg1> <reg2>`| multiplies reg1 by reg2 storing the result in reg2 |
-| `idiv <reg1> <reg2>`| divides reg1 by reg2 storing the result in reg2 |
-| `prnt <reg>`        | prints to stdout |
-| `prnt <int>`        | prints to stdout |
-| `hlt <int>`         | waits the specified time (can be a float) |
-| `hlt <reg>`         | waits the specified time |
+| `mul <reg1> <reg2>` | multiplies reg2 by reg1 storing the result in reg1 |
+| `div <reg1> <reg2>` | divides reg2 by reg1 storing the result in reg1 |
+| `prnt <reg|int>`    | prints to stdout |
+| `hlt <reg|int>`     | waits the specified time in ms |
+| `cmp <reg1> <reg2>` | compares both registers for equality, stores result in read only comparison result register |
+| `jmp <label>`       | jump to label |
+| `je <label>`        | jump to label if the comparison result is 1 |
+| `jne <label>`        | jump to label if the comparison result is 0 |
 
 # Example
-The asm file:
+First 10 numbers of fibonacci `fibonacci.asm`:
 ```
-mov 1 b
-mov b c
-mov b d
+mov c 1
+mov d 0
+mov e 10
+prnt 0
 loop:
-    add c d
-    mov b c
+    add c b
     mov b a
-    mov d b
-    prnt d
-    hlt .25
+    mov a c
+    prnt c
+    hlt 250
+    inc d
+    cmp e d
+    je end
 jmp loop
+end:
 ```
-- Saved as "fibonacci.asm"
-- Running the command `python main.py -f fibonacci.asm`:  
-![Fibonacci output](https://github.com/michael-gif/assembly-interpreter/blob/main/stuff/output.png)
+![Output](https://github.com/michael-gif/assembly-interpreter/blob/main/resources/fibonacci_output.png)  
+Comparison and jump not equal example:
+```
+mov a 9
+mov b 10
+
+cmp b a
+je l1
+jne l2
+
+l1:
+prnt equal
+jmp end
+
+l2:
+prnt not_equal
+jmp end
+
+end:
+```
+![Output](https://github.com/michael-gif/assembly-interpreter/blob/main/resources/jne_output.png)
