@@ -13,7 +13,7 @@ An emulator that will read and execute an asm file from the terminal
 | `add <reg1> <reg2>` | adds reg2 to reg1 storing the result in reg1 |
 | `sub <reg1> <reg2>` | subtracts reg2 from reg1 storing the result in reg1 |
 | `mul <reg1> <reg2>` | multiplies reg2 by reg1 storing the result in reg1 |
-| `div <reg1> <reg2>` | divides reg2 by reg1 storing the result in reg1 |
+| `div <reg1> <reg2>` | divides reg1 by reg2 storing the result in reg1 |
 | `prnt <reg or int>` | prints to stdout |
 | `hlt <reg or int>`  | waits the specified time in ms |
 | `cmp <reg1> <reg2>` | compares both registers for equality, stores result in read only comparison result register |
