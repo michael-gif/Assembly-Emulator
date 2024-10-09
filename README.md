@@ -21,6 +21,9 @@ An emulator that will read and execute an asm file from the terminal
 | `je <label>`        | jump to label if the comparison result is 1 |
 | `jne <label>`       | jump to label if the comparison result is 0 |
 
+# Registers
+There are 6 registers available: `a, b, c, d, e, f`. Each register holds an `int`.
+
 # Examples
 ### First 10 numbers of fibonacci [`fibonacci.asm`](https://github.com/michael-gif/assembly-interpreter/blob/main/resources/fibonacci.asm):
 ```

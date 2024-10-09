@@ -21,7 +21,8 @@ std::map<std::string, int> registers = {
     {"b", 0},
     {"c", 0},
     {"d", 0},
-    {"e", 0}
+    {"e", 0},
+    {"f", 0}
 };
 
 int compareResult = 0;
