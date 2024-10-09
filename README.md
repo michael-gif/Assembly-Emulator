@@ -22,7 +22,7 @@ An emulator that will read and execute an asm file from the terminal
 | `jne <label>`       | jump to label if the comparison result is 0 |
 
 # Examples
-### First 10 numbers of fibonacci `fibonacci.asm`:
+### First 10 numbers of fibonacci [`fibonacci.asm`](https://github.com/michael-gif/assembly-interpreter/blob/main/resources/fibonacci.asm):
 ```
 mov c 1
 mov d 0
@@ -40,9 +40,10 @@ loop:
 jmp loop
 end:
 ```
+Output  
 ![Output](https://github.com/michael-gif/assembly-interpreter/blob/main/resources/fibonacci_output.png)
 
-### Comparison and jump not equal example `comparison.asm`:
+### Comparison and jump not equal example [`comparison.asm`](https://github.com/michael-gif/assembly-interpreter/blob/main/resources/comparison.asm):
 ```
 mov a 9
 mov b 10
@@ -61,4 +62,5 @@ jmp end
 
 end:
 ```
+Output  
 ![Output](https://github.com/michael-gif/assembly-interpreter/blob/main/resources/jne_output.png)
