@@ -8,10 +8,10 @@ An emulator that will read and execute an asm file from the terminal
 | Instruction         | Description |
 | ------------------- | ----------- |
 | `mov <reg1> <reg2>` | moves contents of reg2 to reg1 |
-| `add <reg1> <reg2>` | adds reg2 to reg1 storing the result in reg1 |
-| `sub <reg1> <reg2>` | subtracts reg2 from reg1 storing the result in reg1 |
 | `inc <reg>`         | increments reg by 1 |
 | `dec <reg>`         | decrements reg by 1 |
+| `add <reg1> <reg2>` | adds reg2 to reg1 storing the result in reg1 |
+| `sub <reg1> <reg2>` | subtracts reg2 from reg1 storing the result in reg1 |
 | `mul <reg1> <reg2>` | multiplies reg2 by reg1 storing the result in reg1 |
 | `div <reg1> <reg2>` | divides reg2 by reg1 storing the result in reg1 |
 | `prnt <reg or int>` | prints to stdout |
