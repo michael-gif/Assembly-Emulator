@@ -14,12 +14,12 @@ An emulator that will read and execute an asm file from the terminal
 | `dec <reg>`         | decrements reg by 1 |
 | `mul <reg1> <reg2>` | multiplies reg2 by reg1 storing the result in reg1 |
 | `div <reg1> <reg2>` | divides reg2 by reg1 storing the result in reg1 |
-| `prnt <reg|int>`    | prints to stdout |
-| `hlt <reg|int>`     | waits the specified time in ms |
+| `prnt <reg or int>` | prints to stdout |
+| `hlt <reg or int>`  | waits the specified time in ms |
 | `cmp <reg1> <reg2>` | compares both registers for equality, stores result in read only comparison result register |
 | `jmp <label>`       | jump to label |
 | `je <label>`        | jump to label if the comparison result is 1 |
-| `jne <label>`        | jump to label if the comparison result is 0 |
+| `jne <label>`       | jump to label if the comparison result is 0 |
 
 # Example
 First 10 numbers of fibonacci `fibonacci.asm`:
