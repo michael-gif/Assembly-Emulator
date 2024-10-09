@@ -238,17 +238,14 @@ struct CompareCommand : ASMCommand {
 };
 
 struct JumpCommand : ASMCommand {
-    std::string labelName;
-    JumpCommand(std::string& _labelName) : ASMCommand("Jump") {
-        labelName = _labelName;
-    }
+    JumpCommand(std::string& _arg1) : ASMCommand("Jump", _arg1, "") {}
 
     /// <summary>
     /// Jumps to label
     /// </summary>
     /// <returns></returns>
     int execute() override {
-        return labels[labelName];
+        return labels[arg1];
     }
 };
 
@@ -317,7 +314,7 @@ void readASMFile(std::string& filename, std::vector<std::string>& asmLines) {
     }
     std::string line;
     while (std::getline(file, line)) {
-        if (line.empty()) continue; // remove empty lines
+        if (line.empty()) continue; // skip empty lines
         asmLines.push_back(line);
     }
     file.close();
